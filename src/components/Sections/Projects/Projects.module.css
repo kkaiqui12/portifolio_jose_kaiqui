@@ -33,15 +33,15 @@
 
 /* Efeito hover no card */
 .project-card:hover {
-  transform: perspective(1000px) rotateY(10deg); /* Rotação 3D no eixo Y */
+  /* transform: perspective(1000px) rotateY(10deg);  */
   box-shadow: 0 15px 40px rgb(107, 12, 196); /* Sombra ciano neon */
   filter: grayscale(0%);
 }
 
 /* Efeito ao clicar no card */
-.project-card:active {
-  transform: perspective(1000px) rotateY(10deg) scale(1.05); /* Aumenta levemente */
-}
+/* .project-card:active {
+  transform: perspective(1000px) rotateY(10deg) scale(1.05); 
+} */
 
 
 /* Imagem - aumento da altura */
@@ -51,10 +51,6 @@
   object-fit: cover;
   object-position: center; /* Centraliza o foco da imagem */
 }
-
-/* .card-image img:hover{
-  filter: grayscale(0%);
-} */
 
 /* Ajustes de espaçamento interno */
 .card-content {
@@ -75,21 +71,48 @@
   margin-bottom: 2rem;
 }
 
-/* Ajuste a cor do texto e adicione hover */
 .demo-button {
+  /* Estilo base */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #8b5cf6;
-  color: #fff; /* Mudança crítica: texto branco para contraste */
-  padding: 0.8rem 1.2rem;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
   border: 2px solid #0f172a;
-  border-radius: 5px;
-  text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
-  transition: all 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  
+  /* Configurações 3D */
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  backface-visibility: hidden;
+  
+  /* Transição */
+  will-change: transform, box-shadow;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .demo-button:hover {
   background: #6d28d9;
-  color: #0f172a; /* Texto escuro no hover */
+  transform: 
+    perspective(1000px) 
+    rotateY(10deg) 
+    scale(1.05)
+    translateZ(10px);
+  box-shadow: 
+    0 12px 25px rgba(0,0,0,0.25),
+    0 8px 15px rgba(109, 40, 217, 0.4);
+}
+
+.demo-button:active {
+  transform: 
+    perspective(1000px) 
+    rotateY(10deg) 
+    scale(0.98)
+    translateZ(5px);
 }
 
 /* Responsividade - ajuste fino */
