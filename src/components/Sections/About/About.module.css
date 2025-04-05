@@ -1,0 +1,89 @@
+/* =========== Estilos da seção "Sobre" =========== */
+.about {
+  display: flex;                   /* Layout flexível */
+  min-height: 100vh;               /* Altura mínima igual à tela inteira */
+  padding: 2rem;                   /* Espaçamento interno geral */
+  align-items: flex-start;         /* Alinhamento dos itens no topo */
+}
+
+/* =========== Container principal =========== */
+.container {
+  width: 100%;                     /* Largura total do container pai */
+  margin-top: 40px;                /* Margem superior para separar do header */
+}
+
+/* =========== Container do vídeo =========== */
+.videoWrapper {
+  width: 100%;                      /* Largura relativa ao container */
+  height: 79vh;                    /* Altura baseada na viewport (60% da tela) */
+  padding-bottom: 2rem;
+  padding-right: 10.9rem;
+  padding-left: 10.9rem;
+  /* Animação */
+  opacity: 0; /* Elemento inicia invisível */
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
+}
+
+/* =========== Elemento de vídeo =========== */
+.video {
+  width: 100%;                     /* Largura total do container pai */
+  height: 100%;                    /* Altura total do container pai */
+  border: none;                    /* Remove borda padrão */
+  border-radius: 10px;             /* Bordas arredondadas */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Sombra suave para profundidade */
+}
+
+/* =========== Container de texto/apresentação =========== */
+.presentation {
+  display: flex;                   
+  flex-direction: column;          /* Organização vertical */
+  justify-content: flex-start;     /* Conteúdo alinhado no topo */
+  align-items: center;             /* Centralização horizontal */
+  width: 77%;                      /* Largura proporcional ao vídeo */
+  min-height: 400px;               /* Altura mínima garantida */
+  background: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+  border-radius: 10px;             /* Bordas arredondadas */
+  padding: 2rem;                   /* Espaçamento interno */
+  margin: 0 auto;                  /* Centralização horizontal */
+  /* Animação */
+  opacity: 0; /* Elemento inicia invisível */
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
+}
+
+/* =========== Títulos =========== */
+.presentation h1 {
+  font-size: 2.5rem;               /* Tamanho grande para destaque */
+  margin-bottom: 1rem;             /* Espaçamento abaixo do título */
+  color: #8b5cf6;                     /* Cor escura para contraste */
+}
+
+/* =========== Parágrafos =========== */
+.presentation p {
+  font-size: 1.2rem;               /* Tamanho legível */
+  margin-bottom: 0.5rem;           /* Espaço entre parágrafos */
+  color: #494848;                     /* Cinza para texto secundário */
+}
+
+/* =========== Área de descrição =========== */
+.description {
+  flex-grow: 1;                    /* Expande para preencher espaço vertical */
+  width: 100%;                     /* Largura total */
+  overflow-y: auto;                /* Scroll vertical se necessário */
+  line-height: 1.6;                /* Espaçamento entre linhas */
+}
+
+/* =========== Animação de entrada (Otimizada) =========== */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) translateZ(0); /* Aceleração de GPU */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
+}

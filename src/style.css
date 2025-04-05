@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: linear-gradient(-45deg, #6d28d9, #1f2937); */
+  background: #1a1a1a;
+	background-size: 400% 400%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  animation: gradient 15s ease infinite;
+	height: 100vh;  
+  color: white;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  flex: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+  /* Conteúdo principal */
+  main {
+    margin-top: 4rem;
+    padding: 2rem;
+    min-height: 100vh;
+    transition: opacity 0.3s ease-in-out;
+  }

@@ -1,0 +1,157 @@
+.home {
+  display: flex;
+  min-height: calc(100vh - 80px); /* Compensa o padding-top */
+  padding: 2rem 2rem 0; /* Mantém padding só nas laterais e topo */
+  align-items: flex-start; /* Alinha conteúdo no topo */
+  padding-top: 80px; /* Espaço extra acima do conteúdo */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  margin-top: 40px; /* Adiciona espaço entre o header e as seções */
+}
+
+/* Container da imagem */
+.imageWrapper {
+  flex: 1;
+  position: relative;
+  margin: 0 auto; /* Centraliza */
+  width: 50%; /* Reduz a largura */
+  height: 70vh; /* Altura controlada */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%; /* Usa altura do container */
+  object-fit: contain; /* Mantém proporção sem cortar */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.presentation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centraliza horizontalmente */
+  width: 80%; /* Mesma largura do .videoWrapper */
+  height: 60vh; /* Altura igual à do vídeo */
+  min-height: 400px; /* Altura mínima igual à do vídeo */
+  background: rgba(255, 255, 255, 0.9); 
+  border-radius: 10px;
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
+  margin: 0 auto; /* Centraliza horizontalmente no container */
+}
+
+/* ADICIONE isto */
+.presentation h1 {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid #8b5cf6;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  max-width: fit-content; /* Fundamental para funcionar */
+}
+
+/* Modifique a classe presentationH1 */
+.presentationH1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  /* Mantenha as propriedades de animação aqui */
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+.presentation p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #494848;
+}
+
+.description {
+  padding-top: 3%;
+  line-height: 1.6;
+  padding-bottom: 5%
+}
+
+/* Adicione isso ao seu CSS */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #8b5cf6}
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 1rem; /* Espaço entre os botões */
+  margin-top: 1rem;
+}
+
+.demo-button {
+  background: #8b5cf6;
+  color: #0f172a;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #0f172a;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer; /* Adiciona cursor pointer para parecer clicável */
+  display: inline-block; /* Garante que o hover funcione corretamente */
+}
+
+.demo-button:hover {
+  background: #6d28d9;
+  color: #fff;
+  transform: translateY(-2px); /* Efeito sutil de levantar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra no hover */
+}
+
+button.demo-button {
+  font: inherit;
+  font-weight: bold;
+}
+
+/* =========== Animação de entrada (Otimizada) =========== */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px) translateZ(0); /* Aceleração de GPU */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .videoWrapper, .presentation {
+    width: 100%; /* Largura total em dispositivos móveis */
+    height: 50vh; /* Ajuste proporcional para mobile */
+    min-height: 300px;
+  }
+  .home {
+    padding-top: 40px; /* Menos espaço em telas pequenas */
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+}
